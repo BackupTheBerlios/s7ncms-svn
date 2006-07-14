@@ -10,7 +10,7 @@
 
 class S7N_Database_MySQLi {
     /**
-     * MySQL link identifier
+     * MySQLi link identifier
      *
      * @var link identifier
      */
@@ -27,7 +27,7 @@ class S7N_Database_MySQLi {
     public function __construct($server,$user,$password,$database) {
 		try {
 		    $this->dbh = new mysqli($server,$user,$password,$database);
-			if(mysqli_connect_errno()) {
+			if(!$this->dbh) {
 				throw new FatalException(mysqli_connect_error());
 	        }
 			if (!mysql_select_db($database,$this->dbh)) {
