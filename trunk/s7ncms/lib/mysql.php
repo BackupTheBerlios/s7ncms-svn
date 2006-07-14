@@ -41,10 +41,11 @@ class S7N_Database_MySQL {
     /**
      * Send a query to database
      *
+     * @param string query
      */
-    public function query() {
-		$result = mysql_query($sql,$this->dbh);
+    public function query($query) {
 		try {
+		    $result = mysql_query($query,$this->dbh);
 		    if(!$result) {
 				throw new DatabaseException(mysql_error($this->dbh));
 			}
@@ -57,8 +58,13 @@ class S7N_Database_MySQL {
     /**
      * Send multimpe query to database which are concatenated by a semicolon
      *
+     * @param string query
      */
-    public function multipleQuery() {}
+    public function multipleQuery($query) {
+        /*
+         * TODO: miltiple queries implementieren
+         */
+    }
     
     /**
      * Affected Rows in the last query
