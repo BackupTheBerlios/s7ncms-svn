@@ -14,15 +14,17 @@
 interface S7N_Interface_Database {
     /**
      * Send a query to database
-     *
+     * 
+     * @param string query
      */
-    public function query();
+    public function query($query);
     
     /**
      * Send multimpe query to database which are concatenated by a semicolon
      *
+     * @param string query
      */
-    public function multipleQuery();
+    public function multipleQuery($query);
     
     /**
      * Affected Rows in the last query
