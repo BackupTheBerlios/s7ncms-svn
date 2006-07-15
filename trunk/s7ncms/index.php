@@ -11,13 +11,13 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require('config.php');
-require('lib/s7ncms.php');
-require('lib/interface/database.php');
-require('lib/mysqli.php');
-require('lib/config.php');
-require('lib/exception.php');
-require('lib/abstract/module.php');
-require('lib/abstract/plugin.php');
+require(BASE_PATH.'/lib/s7ncms.php');
+require(BASE_PATH.'/lib/interface/database.php');
+require(BASE_PATH.'/lib/mysqli.php');
+require(BASE_PATH.'/lib/config.php');
+require(BASE_PATH.'/lib/exception.php');
+require(BASE_PATH.'/lib/abstract/module.php');
+require(BASE_PATH.'/lib/abstract/plugin.php');
 
 /*
  * TODO: statische Seiten
@@ -25,7 +25,7 @@ require('lib/abstract/plugin.php');
 
 $s7n = new S7Ncms();
 $module = $s7n->getRequestedModule();
-require('modules/'.$module.'/'.$module.'.php');
+require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
 $module = 'S7N_Module_'.ucfirst($module);
 
 $moduleInstance = new $module($s7n);
