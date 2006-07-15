@@ -27,11 +27,8 @@ class S7N_Database_MySQLi {
     public function __construct($server,$user,$password,$database) {
 		try {
 		    $this->dbh = new mysqli($server,$user,$password,$database);
-			if(!$this->dbh) {
+			if(mysqli_connect_errno()) {
 				throw new FatalException(mysqli_connect_error());
-	        }
-			if (!mysql_select_db($database,$this->dbh)) {
-				throw new FatalException(mysql_error($this->dbh));
 	        }
 		} catch (FatalException $e) {
 		    echo $e;
