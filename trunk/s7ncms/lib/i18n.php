@@ -33,20 +33,24 @@ class S7N_I18n {
          * - fertig
          */
         $cachepath = BASE_PATH.'/cache/'.LANGUAGE.'.mo.php';
-        if(file_exists($cachepath)) {
-            include_once($cachepath);
-            //$this->translation = & $translation;
-        } else {
-            touch($cachepath);
-        }
-        
         $mopath = BASE_PATH.'/lang/'.LANGUAGE.'.mo';
         
-        if (!isset($timestamp) OR $timestamp < filemtime($mopath)) {
-			$this->translation = $this->parseMo();
-			file_put_contents($cachepath, '<?php $timestamp = '.filemtime($mopath).'; $translation='. var_export($this->translation,1) .' ?>');
+        if(file_exists($cachepath)) {
+            include_once($cachepath);
         } else {
-            $this->translation = & $translation;
+            $this->cacheTranslation($cachepath,$mopath);
+        }
+        
+        
+        
+        if (!isset($timestamp) OR $timestamp < filemtime($mopath)) {
+			$this->cacheTranslation($cachepath,$mopath);
+        } else {
+            if(isset($translation)) {
+                $this->translation = & $translation;
+            } else {
+                $this->cacheTranslation($cachepath,$mopath);
+            }
         }
     }
     
@@ -54,6 +58,7 @@ class S7N_I18n {
      * Parses gettext .mo files
      * 
      * Translated method read_mo from the Perl module Locale::Maketext::Gettext
+     * @see http://www.gnu.org/software/gettext/manual/html_mono/gettext.html#SEC136
      *
      * @return array associative array with translations
      */
@@ -129,6 +134,13 @@ class S7N_I18n {
     
     public function getTranslation() {
         return $this->translation;
+    }
+    
+    private function cacheTranslation($cachepath, $mopath) {
+        $this->translation = $this->parseMo();
+		touch($cachepath);
+		
+		file_put_contents($cachepath, '<?php $timestamp = '.filemtime($mopath).'; $translation='. var_export($this->translation,1) .' ?>');
     }
 }
 ?>

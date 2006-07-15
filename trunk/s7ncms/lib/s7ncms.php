@@ -48,6 +48,8 @@ class S7Ncms {
          * ));
          */
         echo $this->output;
+        global $startTime;
+        echo '<!--'. (microtime() - $startTime) . 'sec at all-->';
     }
     
     /**

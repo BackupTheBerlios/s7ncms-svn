@@ -9,7 +9,7 @@
  */
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
+$startTime = microtime();
 require('config.php');
 require(BASE_PATH.'/lib/s7ncms.php');
 require(BASE_PATH.'/lib/interface/database.php');
@@ -48,6 +48,5 @@ try {
 } catch(S7N_Exceptionn $e) {
     echo $e;
 }
-
 
 ?>
