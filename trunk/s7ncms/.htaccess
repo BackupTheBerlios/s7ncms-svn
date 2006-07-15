@@ -1,0 +1,25 @@
+
+RewriteEngine On
+
+
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^([A-Za-z]+)/?$ \
+    index.php?module=$1 [L,QSA]
+
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^([A-Za-z]+)/([0-9]+)\-(\S+)/?$ \
+    index.php?module=$1&class=$2 [L,QSA]
+
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^([A-Za-z]+)/([A-Za-z]+)/?$ \
+    index.php?module=$1&class=$2 [L,QSA]
+
+
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+RewriteRule ^([A-Za-z]+)/([A-Za-z]+)/([A-Za-z0-9]+)/?$ \
+    index.php?module=$1&class=$2&event=$3 [L,QSA]
+
