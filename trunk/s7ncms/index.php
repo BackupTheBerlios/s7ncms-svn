@@ -25,6 +25,12 @@ try {
     $s7n = new S7Ncms();
 
 	$module = $s7n->getRequestedModule();
+	if($module === null) {
+	    
+	    
+	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
+	    exit;
+	}
 	$type = $s7n->getRequestedPageType($module);
 	if ($type == 'dynamic') {
 		require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');

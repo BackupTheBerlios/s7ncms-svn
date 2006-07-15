@@ -62,13 +62,6 @@ define('DEFAULT_MODULE', 'news');
  */
 define('LANGUAGE', 'german');
 
-/**
- * Base URL to the Script _with_ tailing slash
- * Example: http://www.example.com/ 
- * @const BASE_URL Absolute URL to S7Ncms
- */
-define('BASE_URL','http://localhost/S7Ncms/'); // MIT backslash am Ende!
-
 /*
  * **************  Ab hier nichts verändern
  */
