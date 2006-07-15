@@ -26,6 +26,7 @@ class S7N_Module {
     protected $cfg;
     protected $output;
     protected $event;
+    protected $moduleInfo = array();
     
     //! A constructor
     /**
@@ -70,6 +71,7 @@ class S7N_Module {
 
     public function getContent() { return $this->content; }
 	public function getTitle() { return $this->title; }
+	public function getModuleInfo() { return $this->moduleInfo; }
 }
 
 class ModuleException extends Exception {
