@@ -9,6 +9,9 @@
  */
 
 class S7N_Exception extends Exception {
+    /*
+     * TODO: default template
+     */
     function __toString() {
         echo '<h1>Error</h1>';
         echo '<h2>'.$this->getMessage().'</h2>';

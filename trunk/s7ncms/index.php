@@ -23,13 +23,34 @@ require(BASE_PATH.'/lib/abstract/plugin.php');
  * TODO: statische Seiten
  */
 
-$s7n = new S7Ncms();
-$module = $s7n->getRequestedModule();
-require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
-$module = 'S7N_Module_'.ucfirst($module);
+try {
+    $s7n = new S7Ncms();
 
-$moduleInstance = new $module($s7n);
-$moduleInstance->execute();
+	$module = $s7n->getRequestedModule();
+	$type = $s7n->getRequestedPageType($module);
+	if ($type == 'dynamic') {
+		require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
+		$module = 'S7N_Module_'.ucfirst($module);
+		
+		$moduleInstance = new $module($s7n);
+		$moduleInstance->execute(); 
+	} elseif($type == 'static') {
+	    /*
+	     * TODO: default_template
+	     */
+	    echo $s7n->page['title'];
+	    echo $s7n->page['content'];
+	} else {
+	    /*
+	     * TODO: exception
+	     */
+	    throw new S7N_Exception('Page not found');
+	    
+	}
+} catch(S7N_Exceptionn $e) {
+    echo $e;
+}
+
 
 
 ?>

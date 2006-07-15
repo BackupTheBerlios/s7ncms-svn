@@ -12,6 +12,7 @@ class S7Ncms {
     public $cfg;
     public $db;
     public $output;
+    public $page;
     
     /**
      * initializes some instances
@@ -87,6 +88,20 @@ class S7Ncms {
 		} else {
 			return null;
 		}        
+    }
+    
+    public function getRequestedPageType($page) {
+        $result = $this->db->query("SELECT id, name, content, title, type FROM ".DB_PREFIX."pages WHERE name = '".$page."' AND isEnabled = 1 LIMIT 1");
+        if($this->db->affectedRows()) {
+            $row = $this->db->fetchAssoc($result);
+            $this->page = array(
+                'id' => $row['id'],
+                'name' => $row['name'],
+            	'title' => $row['title'],
+            	'content' => $row['content']);
+            return $row['type'];
+        }
+        return null;
     }
     
 }
