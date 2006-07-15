@@ -14,6 +14,7 @@ require('config.php');
 require('lib/s7ncms.php');
 require('lib/interface/database.php');
 require('lib/mysqli.php');
+require('lib/exception.php');
 require('lib/abstract/module.php');
 require('lib/abstract/plugin.php');
 
@@ -26,27 +27,4 @@ $moduleInstance = new $module($s7n);
 $moduleInstance->execute();
 
 
-/*
- * TODO: das muss in eine eigene datei
- */
-
-class S7N_Exception extends Exception {
-    function __toString() {
-        echo '<h1>Error</h1>';
-        echo '<h2>'.$this->getMessage().'</h2>';
-        exit;
-    }
-}
-
-class FatalException extends S7N_Exception {
-    function __toString() {
-			echo "<h1>Fatal Error</h1>";
-            echo "<h2>{$this->getMessage()}</h2>";
-            /*
-             * TODO: File und line nur ausgeben, wenn debug = 1
-             */			
-			echo "<i>{$this->getFile()} ({$this->getLine()})</i>";
-            exit; 
-    }
-}
 ?>
