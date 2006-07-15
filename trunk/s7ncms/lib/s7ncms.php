@@ -12,6 +12,7 @@ class S7Ncms {
     public $cfg;
     public $db;
     public $param;
+    public $output;
     
     /**
      * initializes some instances
@@ -21,10 +22,10 @@ class S7Ncms {
         /*
          * TODO: Instanzen einbauen
          * - Parameter vielleicht?! glaub nich... naja, we'll see :o
-         * - Datenbank
          * - Konfiguration
          * - Benutzerverwaltung (Zugriffsrechte)
          */
+        $this->db = new S7N_Database_MySQLi(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     }
     
     /**
@@ -40,6 +41,7 @@ class S7Ncms {
          *     'content' => $this->output
          * ));
          */
+        echo $this->output;
     }
     
     /**

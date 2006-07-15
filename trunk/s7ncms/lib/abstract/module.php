@@ -19,22 +19,23 @@ class S7N_Module {
     private $observers = array(); 
     
     protected $db;
-    protected $content;
     protected $title;
     protected $access;
     protected $error = array();
     protected $localization;
     protected $cfg;
+    protected $output;
+    protected $event;
     
     //! A constructor
     /**
     * Constructs the Observerable object
     */
-    protected function __construct() {
-        $this->db = S7N_Database::getInstance();
-        $this->access = S7N_Access::getInstance();
-        $this->localization = S7N_I18n::getInstance(LANGUAGE);
-        $this->cfg = S7N_Config::getInstance();
+    public function __construct($s7n) {
+        $this->db = &$s7n->db;
+        $this->output = &$s7n->output;
+        $this->event = $s7n->getRequestedEvent();
+        
     }
  
     //! An accessor
@@ -52,7 +53,7 @@ class S7N_Module {
  
     //! An accessor
     /**
-    * Register the reference to an object object
+    * Register the reference to an object
     * @return void
     */ 
     function addModule (&$observer) {
@@ -64,7 +65,7 @@ class S7N_Module {
         return (is_object($module) AND $module instanceof S7N_Module);
     }*/
 
-    public function doEvent($event,$id=null) { }
+    public function execute($event,$id=null) { }
 
     public function getContent() { return $this->content; }
 	public function getTitle() { return $this->title; }
