@@ -9,6 +9,7 @@
  */
 
 class S7Ncms {
+    private static $instance = null;
     public $cfg;
     public $db;
     public $output;
@@ -20,7 +21,7 @@ class S7Ncms {
      * initializes some instances
      *
      */
-    public function __construct() {
+    private function __construct() {
         /*
          * TODO: Instanzen einbauen
          * - Parameter vielleicht?! glaub nich... naja, we'll see :o
@@ -32,6 +33,13 @@ class S7Ncms {
         $this->cfg = $config->getCachedConfig();
         $this->i18n = new S7N_I18n();
         $this->translation = & $this->i18n->getTranslation();
+    }
+    
+    public static function getInstance() {
+        if (self::$instance == null) {
+            self::$instance = new S7Ncms();
+        }
+        return self::$instance;
     }
     
     /**

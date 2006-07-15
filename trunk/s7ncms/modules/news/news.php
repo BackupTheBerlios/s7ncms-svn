@@ -10,8 +10,8 @@
 
 class S7N_Module_News extends S7N_Module {
     
-    public function __construct($s7n) {
-        parent::__construct($s7n);
+    public function __construct() {
+        parent::__construct();
         $this->moduleInfo = array(
         	'modulename' => 'News',
         	'description' => 'Simple News module',

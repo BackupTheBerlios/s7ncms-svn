@@ -33,12 +33,13 @@ class S7N_Module {
     /**
     * Constructs the Observerable object
     */
-    public function __construct($s7n) {
-        $this->db = &$s7n->db;
-        $this->cfg = &$s7n->cfg;
-        $this->output = &$s7n->output;
-        $this->event = $s7n->getRequestedEvent();
-        $this->s7n = &$s7n;
+    public function __construct() {
+        $this->s7n = &S7Ncms::getInstance();
+        $this->db = &$this->s7n->db;
+        $this->cfg = &$this->s7n->cfg;
+        $this->output = &$this->s7n->output;
+        $this->event = $this->s7n->getRequestedEvent();
+        
         
     }
  

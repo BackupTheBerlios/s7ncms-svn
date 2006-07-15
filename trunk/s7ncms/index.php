@@ -22,7 +22,7 @@ require(BASE_PATH.'/lib/abstract/plugin.php');
 
 
 try {
-    $s7n = new S7Ncms();
+    $s7n = S7Ncms::getInstance();
 
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
@@ -36,7 +36,7 @@ try {
 		require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
 		$module = 'S7N_Module_'.ucfirst($module);
 		
-		$moduleInstance = new $module($s7n);
+		$moduleInstance = new $module();
 		$moduleInstance->execute(); 
 	} elseif($type == 'static') {
 	    /*
