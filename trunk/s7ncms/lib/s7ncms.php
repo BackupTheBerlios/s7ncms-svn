@@ -13,6 +13,8 @@ class S7Ncms {
     public $db;
     public $output;
     public $page;
+    private $i18n;
+    public $translation;
     
     /**
      * initializes some instances
@@ -28,6 +30,8 @@ class S7Ncms {
         $this->db = new S7N_Database_MySQLi(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
         $config = new S7N_Config($this);
         $this->cfg = $config->getCachedConfig();
+        $this->i18n = new S7N_I18n();
+        $this->translation = & $this->i18n->getTranslation();
     }
     
     /**
@@ -102,6 +106,10 @@ class S7Ncms {
             return $row['type'];
         }
         return null;
+    }
+    
+    public function _($string,$param1=null) {
+        return $this->i18n->_($string,$param1);
     }
     
 }

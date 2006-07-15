@@ -16,6 +16,7 @@ require(BASE_PATH.'/lib/interface/database.php');
 require(BASE_PATH.'/lib/mysqli.php');
 require(BASE_PATH.'/lib/config.php');
 require(BASE_PATH.'/lib/exception.php');
+require(BASE_PATH.'/lib/i18n.php');
 require(BASE_PATH.'/lib/abstract/module.php');
 require(BASE_PATH.'/lib/abstract/plugin.php');
 
@@ -51,6 +52,6 @@ try {
     echo $e;
 }
 
-
+echo "Testuebersetzung: ".$s7n->_('You are already logged in') . '<br />';
 
 ?>
