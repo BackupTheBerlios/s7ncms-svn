@@ -11,7 +11,6 @@
 class S7Ncms {
     public $cfg;
     public $db;
-    public $param;
     public $output;
     
     /**
@@ -26,6 +25,8 @@ class S7Ncms {
          * - Benutzerverwaltung (Zugriffsrechte)
          */
         $this->db = new S7N_Database_MySQLi(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+        $config = new S7N_Config($this);
+        $this->cfg = $config->getCachedConfig();
     }
     
     /**

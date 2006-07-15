@@ -42,7 +42,7 @@ class S7N_Database_MySQLi {
      */
     public function query($query) {
 		try {
-		    $result = $this->dbh->query($sql);
+		    $result = $this->dbh->query($query);
 		    if(!$result) {
 				throw new DatabaseException($this->dbh->error);
 			}

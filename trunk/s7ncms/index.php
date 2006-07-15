@@ -14,9 +14,14 @@ require('config.php');
 require('lib/s7ncms.php');
 require('lib/interface/database.php');
 require('lib/mysqli.php');
+require('lib/config.php');
 require('lib/exception.php');
 require('lib/abstract/module.php');
 require('lib/abstract/plugin.php');
+
+/*
+ * TODO: statische Seiten
+ */
 
 $s7n = new S7Ncms();
 $module = $s7n->getRequestedModule();

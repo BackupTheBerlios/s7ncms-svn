@@ -33,6 +33,7 @@ class S7N_Module {
     */
     public function __construct($s7n) {
         $this->db = &$s7n->db;
+        $this->cfg = &$s7n->cfg;
         $this->output = &$s7n->output;
         $this->event = $s7n->getRequestedEvent();
         
