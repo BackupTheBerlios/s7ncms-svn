@@ -27,7 +27,7 @@ class S7N_Module_News extends S7N_Module {
         /*
          * TODO: $this->event auswerten
          */
-        $this->output = 'Hallo, ich bin ein News-Modul<br />';
+        $this->output = $this->s7n->_('Hi, this is the simple news module').'<br />';
     }    
     
 }

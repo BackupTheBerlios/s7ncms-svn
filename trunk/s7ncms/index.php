@@ -20,9 +20,6 @@ require(BASE_PATH.'/lib/i18n.php');
 require(BASE_PATH.'/lib/abstract/module.php');
 require(BASE_PATH.'/lib/abstract/plugin.php');
 
-/*
- * TODO: statische Seiten
- */
 
 try {
     $s7n = new S7Ncms();
@@ -45,13 +42,12 @@ try {
 	    /*
 	     * TODO: exception
 	     */
-	    throw new S7N_Exception('Page not found');
+	    throw new S7N_Exception($s7n->_('Page not found'));
 	    
 	}
 } catch(S7N_Exceptionn $e) {
     echo $e;
 }
 
-echo "Testuebersetzung: ".$s7n->_('You are already logged in') . '<br />';
 
 ?>

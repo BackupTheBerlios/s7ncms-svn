@@ -22,11 +22,12 @@ class S7N_Module {
     protected $title;
     protected $access;
     protected $error = array();
-    protected $localization;
+    protected $translation;
     protected $cfg;
     protected $output;
     protected $event;
     protected $moduleInfo = array();
+    protected $s7n;
     
     //! A constructor
     /**
@@ -37,6 +38,7 @@ class S7N_Module {
         $this->cfg = &$s7n->cfg;
         $this->output = &$s7n->output;
         $this->event = $s7n->getRequestedEvent();
+        $this->s7n = &$s7n;
         
     }
  
