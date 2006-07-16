@@ -13,8 +13,11 @@ class S7N_Exception extends Exception {
      * TODO: default template
      */
     function __toString() {
-        echo '<h1>Error</h1>';
-        echo '<h2>'.$this->getMessage().'</h2>';
+        $tmp = new S7N_Template('default_content');
+	    $content = $tmp->parse(array('title' => 'Error','text' => $this->getMessage()));
+
+	    $tmp = new S7N_Template('main');
+	    echo $tmp->parse(array('content' => $content));
         exit;
     }
 }

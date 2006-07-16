@@ -17,6 +17,7 @@ require(BASE_PATH.'/lib/mysqli.php');
 require(BASE_PATH.'/lib/config.php');
 require(BASE_PATH.'/lib/exception.php');
 require(BASE_PATH.'/lib/i18n.php');
+require(BASE_PATH.'/lib/template.php');
 require(BASE_PATH.'/lib/abstract/module.php');
 require(BASE_PATH.'/lib/abstract/plugin.php');
 
@@ -39,17 +40,10 @@ try {
 		$moduleInstance = new $module();
 		$moduleInstance->execute(); 
 	} elseif($type == 'static') {
-	    /*
-	     * TODO: default_template
-	     */
-	    echo $s7n->page['title'];
-	    echo $s7n->page['content'];
+	    $tmp = new S7N_Template('default_content');
+	    $s7n->output = $tmp->parse(array('title' => $s7n->page['title'],'text' => $s7n->page['content']));
 	} else {
-	    /*
-	     * TODO: exception
-	     */
-	    throw new S7N_Exception($s7n->_('Page not found'));
-	    
+	    throw new S7N_Exception($s7n->_('Page not found'));	    
 	}
 } catch(S7N_Exceptionn $e) {
     echo $e;
