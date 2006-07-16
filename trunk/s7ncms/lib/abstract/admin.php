@@ -28,6 +28,7 @@ class S7N_Admin {
     protected $event;
     protected $moduleInfo = array();
     protected $s7n;
+    protected $user;
     
     //! A constructor
     /**
@@ -38,7 +39,8 @@ class S7N_Admin {
         $this->db = & $this->s7n->db;
         $this->cfg = &$this->s7n->cfg;
         $this->output = &$this->s7n->output;
-        $this->event = $this->s7n->getRequestedEvent();        
+        $this->event = $this->s7n->getRequestedEvent();
+        $this->user = & $this->s7n->user;       
     }
  
     //! An accessor
@@ -79,7 +81,7 @@ class AdminException extends Exception {
     function __toString() {
         $main = new S7N_Template('main');
         $content = new S7N_Template('default_content');
-        echo $main->parse(array('content' => $content->parse(array('title' => "Error", 'text' => $this->getMessage())) ));
+        echo $main->parse(array('content' => $content->parse(array('title' => "Error", 'content' => $this->getMessage())) ));
         exit;
     }
 }

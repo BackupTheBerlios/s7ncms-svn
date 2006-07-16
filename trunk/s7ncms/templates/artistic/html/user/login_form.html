@@ -1,0 +1,16 @@
+<div id="main_header">
+    <h2 class="header">Login</h2>
+</div>
+<div id="content">
+    <div class="entry">
+        <div class="entry_message">
+            <form id="shoutform" method="post" action="<?php echo $scripturl ?>user/login/login">
+            Name:<br /><input type="text" id="name" name="username" maxlength="50" title="Loginname"/><br /><br />
+            Passwort:<br /><input type="password" id="website" name="password" maxlength="500" title="Passwort" />
+    		<div id="buttons">
+    			<p><button id="post" type="submit"><img src="<?php echo $imageurl ?>/button_ok.png"><span style="vertical-align:super;font-size:13px;font-weight:bold;"> LOGIN</span></button></p>
+    		</div>
+    		</form>
+        </div>
+    </div>
+</div>

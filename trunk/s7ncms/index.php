@@ -22,15 +22,23 @@ try {
 	    exit;
 	}
 	$type = $s7n->getRequestedPageType($module);
+	
 	if ($type == 'dynamic') {
-		require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
-		$module = 'S7N_Module_'.ucfirst($module);
+	    $class = $s7n->getRequestedClass();
+	    if($class == null OR ctype_digit($class)) {
+	        $class = $module;
+	    }
+		/*
+		 * TODO: path prüfen und ggf exception werfen
+		 */
+	    require(BASE_PATH.'/modules/'.$module.'/'.$class.'.php');
+		$module = 'S7N_Module_'.ucfirst($class);
 		
 		$moduleInstance = new $module();
 		$moduleInstance->execute(); 
 	} elseif($type == 'static') {
 	    $tmp = new S7N_Template('default_content');
-	    $s7n->output = $tmp->parse(array('title' => $s7n->page['title'],'text' => $s7n->page['content']));
+	    $s7n->output = $tmp->parse(array('title' => $s7n->page['title'],'content' => $s7n->page['content']));
 	} else {
 	    throw new S7N_Exception($s7n->_('Page not found'));	    
 	}

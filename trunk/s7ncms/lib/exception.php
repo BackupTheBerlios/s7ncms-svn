@@ -15,7 +15,7 @@ class S7N_Exception extends Exception {
     function __toString() {
         $s7n = & S7Ncms::getInstance();
         $tmp = new S7N_Template('default_content');
-	    $s7n->output = $tmp->parse(array('title' => 'Error','text' => $this->getMessage()));
+	    $s7n->output = $tmp->parse(array('title' => 'Error','content' => $this->getMessage()));
 
 	    exit;
         

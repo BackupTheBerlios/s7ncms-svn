@@ -80,6 +80,7 @@ require(BASE_PATH.'/lib/config.php');
 require(BASE_PATH.'/lib/exception.php');
 require(BASE_PATH.'/lib/i18n.php');
 require(BASE_PATH.'/lib/template.php');
+require(BASE_PATH.'/lib/access.php');
 require(BASE_PATH.'/lib/abstract/module.php');
 require(BASE_PATH.'/lib/abstract/plugin.php');
 

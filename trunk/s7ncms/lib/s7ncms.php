@@ -16,6 +16,7 @@ class S7Ncms {
     public $page;
     private $i18n;
     public $translation;
+    public $user;
     
     /**
      * initializes some instances
@@ -33,6 +34,7 @@ class S7Ncms {
         $this->cfg = $config->getCachedConfig();
         $this->i18n = new S7N_I18n();
         $this->translation = & $this->i18n->getTranslation();
+        $this->user = new S7N_Access();
         define('VERSION', '0.4');
     }
     

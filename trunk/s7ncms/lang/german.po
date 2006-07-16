@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2006-07-16 00:51+0100\n"
+"PO-Revision-Date: 2006-07-16 22:06+0100\n"
 "Last-Translator: Eduard Baun <edy@edy-b.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,13 +13,31 @@ msgstr ""
 "X-Poedit-SearchPath-0: C:\\Dokumente und Einstellungen\\Edy\\Eigene Dateien\\Projekte\\S7Ncms\n"
 
 # C:\Dokumente
-#: und Einstellungen\Edy\Eigene Dateien\Projekte\S7Ncms/index.php:45
+#: und Einstellungen\Edy\Eigene Dateien\Projekte\S7Ncms/index.php:43
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
 
 # C:\Dokumente
+#: und Einstellungen\Edy\Eigene Dateien\Projekte\S7Ncms/admin/index.php:39
+msgid "Module not found"
+msgstr "Modul nicht gefunden"
+
+# C:\Dokumente
+#: und Einstellungen\Edy\Eigene Dateien\Projekte\S7Ncms/admin/index.php:43
+msgid "Get out of here!"
+msgstr "Schleich dich!"
+
+# C:\Dokumente
 #: und Einstellungen\Edy\Eigene
 #: Dateien\Projekte\S7Ncms/modules/news/news.php:30
+#: Dateien\Projekte\S7Ncms/modules/test/test.php:30
 msgid "Hi, this is the simple news module"
 msgstr "Hi, das ist ein simples news-modul"
+
+# C:\Dokumente
+#: und Einstellungen\Edy\Eigene
+#: Dateien\Projekte\S7Ncms/modules/user/login.php:50
+#: Dateien\Projekte\S7Ncms/modules/user/login.php:54
+msgid "Wrong username/password"
+msgstr "Ungültige User-/Passworteingabe"
 
