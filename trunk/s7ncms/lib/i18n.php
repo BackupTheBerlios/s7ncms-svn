@@ -20,18 +20,6 @@ class S7N_I18n {
     private $translation;
     
     public function __construct() {
-        /* 
-         * TODO: i18n init
-         * - checken, ob cachefile da ist
-         * - wenn nicht, neue anlegen
-         * - wenn doch, laden
-         * 
-         * - gucken, ob die X.mo vorhanden und aktueller ist, als timestamp
-         * - wenn nicht, fertig
-         * - wenn aktueller, dann parser anschmeißen, neue cachefile generieren
-         * - das neu erzeugte array benutzen
-         * - fertig
-         */
         $cachepath = BASE_PATH.'/cache/'.LANGUAGE.'.mo.php';
         $mopath = BASE_PATH.'/lang/'.LANGUAGE.'.mo';
         
