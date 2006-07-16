@@ -7,6 +7,7 @@
  * @version $Id$
  * @copyright Eduard Baun, 2006
  */
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $startTime = microtime();
