@@ -12,7 +12,7 @@ class S7N_Config {
     private $db;
     
     public function __construct($s7n) {
-    	$this->db = &$s7n->db;
+        $this->db = &$s7n->db;
     }
     
     private function getConfigArray() {

@@ -33,6 +33,7 @@ class S7Ncms {
         $this->cfg = $config->getCachedConfig();
         $this->i18n = new S7N_I18n();
         $this->translation = & $this->i18n->getTranslation();
+        define('VERSION', '0.4');
     }
     
     public static function getInstance() {
@@ -55,7 +56,14 @@ class S7Ncms {
          *     'content' => $this->output
          * ));
          */
-        echo $this->output;
+        if(!defined('FATAL_ERRORX')){
+	        $main = new S7N_Template('main');
+	        
+	        echo $main->parse(array(
+	        	'content' => $this->output
+	        ));
+    	}
+        
         global $startTime;
         echo '<!--'. (microtime() - $startTime) . 'sec at all-->';
     }

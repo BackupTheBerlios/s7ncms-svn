@@ -13,12 +13,12 @@ class S7N_Exception extends Exception {
      * TODO: default template
      */
     function __toString() {
+        $s7n = & S7Ncms::getInstance();
         $tmp = new S7N_Template('default_content');
-	    $content = $tmp->parse(array('title' => 'Error','text' => $this->getMessage()));
+	    $s7n->output = $tmp->parse(array('title' => 'Error','text' => $this->getMessage()));
 
-	    $tmp = new S7N_Template('main');
-	    echo $tmp->parse(array('content' => $content));
-        exit;
+	    exit;
+        
     }
 }
 
@@ -30,6 +30,7 @@ class FatalException extends S7N_Exception {
              * TODO: File und line nur ausgeben, wenn debug = 1
              */			
 			echo "<i>{$this->getFile()} ({$this->getLine()})</i>";
+			define('FATAL_ERRORX', true);
             exit; 
     }
 }

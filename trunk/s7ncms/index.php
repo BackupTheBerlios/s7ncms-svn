@@ -27,8 +27,6 @@ try {
 
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
-	    
-	    
 	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
 	    exit;
 	}

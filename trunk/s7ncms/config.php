@@ -86,13 +86,6 @@ session_start();
 define('BASE_PATH',dirname(__FILE__));
 
 /**
- * Script version
- * 
- * @const BASE_PATH Version
- */
-define('VERSION','0.4');
-
-/**
  * Loads automatically requested Classes
  *
  * @param string $class Classname
