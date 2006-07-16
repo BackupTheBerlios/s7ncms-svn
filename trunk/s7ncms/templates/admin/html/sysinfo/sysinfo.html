@@ -1,0 +1,27 @@
+<h1>Systeminfo</h1>
+        <table >
+            <tr>
+                <td><b>S7Ncms:</b></td>
+                <td>v<?php echo $VERSION ?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><b>Betriebssystem:</b></td>
+                <td><?php echo @php_uname('s') . ' ' . @php_uname('r'); ?></td>
+            </tr>
+            <tr>
+                <td><b>Datenbank:</b></td>
+                <td><?php echo $databaseversion ?></td>
+            </tr>
+            <tr>
+                <td><b>Webserver:</b></td>
+                <td><?php echo $_SERVER['SERVER_SOFTWARE'] ?></td>
+            </tr>
+            <tr>
+                <td><b>PHP:</b></td>
+                <td><?php echo phpversion(); ?></td>
+            </tr>            
+        </table>

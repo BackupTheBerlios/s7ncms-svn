@@ -96,5 +96,9 @@ class S7N_Database_MySQLi {
     public function fetchAssoc($result) {
         return $result->fetch_assoc();
     }
+    
+    public function getVersion() {
+        return 'MySQLi '.$this->dbh->server_info;
+    }
 }
 ?>

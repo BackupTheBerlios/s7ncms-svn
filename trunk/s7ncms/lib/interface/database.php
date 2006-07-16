@@ -51,6 +51,8 @@ interface S7N_Interface_Database {
      * @param resource $result
      */
     public function fetchAssoc($result);
+    
+    public function getVersion();
 }
 
 ?>

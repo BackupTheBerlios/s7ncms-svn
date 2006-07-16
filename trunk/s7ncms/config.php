@@ -63,13 +63,25 @@ define('DEFAULT_MODULE', 'news');
 define('LANGUAGE', 'german');
 
 /*
- * **************  Ab hier nichts verändern
+ * **************  Ab hier nichts verändern  ******************
  */
 
-/*require_once('lib/gettext.php');
-require_once('lib/streams.php');
-require_once('lib/Exception.php');
-require_once('lib/S7ncms.php');*/
+/**
+ * Base PATH to the Script
+ * 
+ * @const BASE_PATH Absolute PATH to S7Ncms
+ */
+define('BASE_PATH',dirname(__FILE__));
+
+require(BASE_PATH.'/lib/s7ncms.php');
+require(BASE_PATH.'/lib/interface/database.php');
+require(BASE_PATH.'/lib/mysqli.php');
+require(BASE_PATH.'/lib/config.php');
+require(BASE_PATH.'/lib/exception.php');
+require(BASE_PATH.'/lib/i18n.php');
+require(BASE_PATH.'/lib/template.php');
+require(BASE_PATH.'/lib/abstract/module.php');
+require(BASE_PATH.'/lib/abstract/plugin.php');
 
 // Session-Name festlegen
 session_name('S7N');
@@ -78,12 +90,6 @@ session_set_cookie_params(5 * 365 * 24 * 60 * 60,'/');
 // und abgehts
 session_start();
 
-/**
- * Base PATH to the Script
- * 
- * @const BASE_PATH Absolute PATH to S7Ncms
- */
-define('BASE_PATH',dirname(__FILE__));
 
 /**
  * Loads automatically requested Classes

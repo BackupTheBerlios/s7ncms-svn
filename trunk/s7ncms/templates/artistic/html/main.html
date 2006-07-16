@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title><?php echo $pagetitle ?> v<?php echo $VERSION ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="" />
+<meta name="copyright" content="" />
+<meta name="keywords" content="" />
+<link href="<?php echo $scripturl ?>templates/<?php echo $theme ?>/artistic.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="primary_container">
+		<div id="content_container">
+			<?php echo $content ?>
+			<div id="copyright">
+				<p>Template design by Ricky Wilson. | <strong><a href="http://www.s7n.de/">powered by S7Ncms</a></strong></p>
+			</div>
+		</div>
+
+		<div id="shoutbox_primary_container">
+    	    <!--?php new S7N_Extension('userbox'); ?-->
+		</div>
+
+		<div class="column_container">
+			<div class="column_header">
+				<h2 class="header">Men&uuml;</h2>
+			</div>
+			<div class="column_inner_container">
+    			<!--?php 
+                    new S7N_Menue('main',
+                                    '<p><a href="<?php echo $menueurl ?>"><?php echo $menuetext ?></a></p>',
+                                    '<p><b><a href="<?php echo $menueurl ?>"><?php echo $menuetext ?></a></b></p>');
+                ?-->
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

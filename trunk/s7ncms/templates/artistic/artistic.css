@@ -1,0 +1,497 @@
+	html, body {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		background-color: #eeeeee;
+		font-size: 8pt;
+		color: #777777;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
+
+	#primary_container {
+		width: 774px;
+		margin: 20px auto;
+		padding: 0;
+		background-color: transparent;
+	}
+
+	#content_container {
+		background: #ffffff url('images/left_header.jpg') top left no-repeat;
+		float: left;
+		border: 2px solid #dcdcdc;
+		padding: 120px 0 0 0;
+		width: 568px;
+	}
+
+	#content {
+		background-color: transparent;
+		text-align: left;
+		width: 528px;
+		border: 0;
+		width: 0 auto;
+		height: auto;
+		margin: 20px 20px 0 20px;
+	}
+
+	h2#page_title {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-weight: 400;
+		font-size: 11pt;
+		margin: 0;
+		padding-bottom: 15px;
+	}
+
+	h2.header {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-weight: 400;
+		font-size: 14pt;
+		margin: 0;
+		padding: 0;
+	}
+
+
+	h2.sub_title {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 10pt;
+		margin: 0;
+	}
+
+	h3 {
+		font-family: "Trebuchet MS", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 13pt;
+		font-weight: 400;
+		margin: 0;
+	}
+
+	form {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	input,button {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 8pt;
+	}
+
+	
+	label {
+		margin: 0;
+		padding: 0;
+	}
+
+	a:link, a:visited, a:active {
+		color: #000000;
+		text-decoration: underline;
+	}
+
+	a:hover {
+		color: #a6414a;
+ 		text-decoration: none;
+	}
+    
+    .title a {
+		font-family: "Trebuchet MS", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 12pt;
+		font-weight: lighter;
+		margin: 0;
+		text-decoration: none;
+    }
+
+    .title_comments a {
+		font-family: "Trebuchet MS", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 10pt;
+		font-weight: 400;
+		margin: 0;
+		text-decoration: none;
+    }
+	
+    #hover {
+		clear: right;
+		float: left;
+		font-size: 8pt;
+		padding-left: 7px;
+		font-weight: bold;
+		letter-spacing: 2px;
+	}
+
+	#nav #hover a, #nav #hover a:hover {
+		color: #000000;
+		text-decoration: none;
+		padding: 0px;
+		border: 0;
+	}
+
+	#hover p {
+		margin: 0;
+	}
+
+	#nav {
+		background-color: #ffffff;
+		text-align: right;
+		border-bottom: 2px solid #dcdcdc;
+		width: 100%;
+		padding: 7px 0 7px 0;
+	}
+
+	#nav ul {
+		font-size: 8pt;
+		margin: 0;
+		padding: 0;
+	}
+
+	#nav ul li {
+		display: inline;
+		margin: 0;
+	}
+
+	#nav a:link, #nav a:visited, #nav a:active {
+		color: #000000;
+		text-decoration: none;
+	}
+
+	#nav a:hover {
+		color: #a6414a;
+	}
+
+	#nav li.active, #nav li.active a, #nav li.active a:hover {
+		color: #000000;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	#nav a {
+		padding: 7px;
+	}
+
+	#copyright {
+		background: #ffffff url('images/footer.png') bottom left no-repeat;
+		font-size: 7pt;
+		width: 548px;
+		height: 20px;
+		clear: both;
+		padding-left: 20px;
+		padding-top: 30px;
+	}
+
+	#copyright p {
+		margin: 0;
+	}
+
+	#shoutbox_form input, #content input.input {
+		border: 1px solid #f6f6f6;
+	}
+	
+	#shoutbox_form button {
+	   border: 1px solid #f6f6f6;
+	   display: block;
+	}
+
+	#shoutbox_form label input {
+		display: block;
+	}
+
+	#shoutbox_primary_container input {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 8pt;
+	}
+
+	h2#shoutbox_header {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-weight: 400;
+		font-size: 11pt;
+		margin: 0;
+		padding-bottom: 18px;
+	}
+
+	div#shoutbox_header {
+		background-image: url('images/header1.png');
+		width: 158px;
+		height: 22px;
+		padding-top: 24px;
+		padding-left: 20px;
+	}
+
+	p#shoutbox_date {
+		margin: 0;
+		padding-bottom: 1em;
+	}
+
+	#shoutbox_primary_container {
+		background: #ffffff url('images/right_header.png') top left no-repeat;
+		border: 0;
+		text-align: left;
+		width: 178px;
+		margin: 0;
+		padding: 120px 0 0 0;
+		float: right;
+		border: 2px solid #dcdcdc;
+		margin-left: 1em;
+	}
+
+	#shoutbox_form input, #shoutbox_form button {
+		width: 136px;
+		padding: 1px 0;
+		background-color: #f6f6f6;
+		border: 1px solid #f6f6f6;
+	}
+
+	#shoutbox_form {
+		border-bottom: 1px solid #f1f1f1;
+		margin-bottom: 8px;
+	}
+
+	#shoutbox_form p {
+		margin: 0;
+	}
+
+	#shoutbox_options {
+		text-align: left;
+		padding-top: 8px;
+		border-top: 1px solid #f1f1f1;
+	}
+
+	#shoutbox_options p {
+		margin: 0;
+	}
+
+	#shoutbox_form #buttons {
+		margin: 5px 0 1em 0;
+	}
+        
+	#shoutbox_form #buttons input {
+		width: 60px;
+		background-color: #ffffff;
+		border: 0;
+		padding: 1px 0;
+	}
+
+	#shoutbox_options {
+		line-height: 15px;
+	}
+
+	#messages .message h2 {
+		font-size: 8pt;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+		color: #440000;
+		margin-bottom: 2px;
+	}
+
+	.message p {
+		text-align: left;
+		margin: 0 0 10px 0;
+	}
+
+	#shoutbox_inner_container {
+		margin: 20px;
+	}
+
+	.column_header h2 {
+		font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-weight: 400;
+		font-size: 11pt;
+		margin: 0;
+		padding-bottom: 18px;
+	}
+
+	.column_header {
+		background-image: url('images/header2.png');
+		width: 158px;
+		height: 22px;
+		padding-top: 24px;
+		padding-left: 20px;
+	}
+
+	.column_container {
+		background-color: #ffffff;
+		border: 0;
+		text-align: left;
+		width: 178px;
+		margin: 20px 0 0 0;
+		padding: 0;
+		float: right;
+		border: 2px solid #dcdcdc;
+		clear: right;
+	}
+	.column_inner_container p {
+		margin: 0;
+		line-height: 15px;
+	}
+
+	.column_inner_container p a {
+		display: block;
+	}
+
+	.column_inner_container {
+		margin: 20px;
+	}
+
+	#main_header {
+		background-image: url('images/header0.png');
+		repeat: repeat-x;
+		width: 548px;
+		height: 22px;
+		padding-top: 24px;
+		padding-left: 20px;
+	}
+
+	acronym {
+		cursor: default;
+	}
+
+	.entry_message p {
+		margin: 8px 0 8px 0;
+	}
+
+	.entry_message {
+		line-height: 15px;
+		border-bottom: 1px solid #f1f1f1;
+	}
+
+	.entry_message ul {
+		margin-left: 20px;
+		padding-left: 20px;
+	}
+
+	.entry_message li {
+		list-style-type: disc;
+	}
+
+	p.entry_date, span.entry_date {
+		font-weight: normal;
+		font-size: 7pt;
+		color: #000000;
+	}
+
+	p.entry_time {
+		float: right;
+		font-weight: normal;
+		font-size: 7pt;
+		color: #000000;
+	}
+
+	div.entry_heading p {
+		margin: 0;
+		padding: 0;
+	}
+
+	div.entry {
+		margin-bottom: 2.5em;
+	}
+
+	div.entry_heading {
+		padding-bottom: 4px;
+		border-bottom: 1px solid #f1f1f1;
+	}
+
+	span.z {
+		font-size: 13pt;
+		color: #777777;
+		text-transform: uppercase;
+	}
+	
+	.title {
+		font-family: "Trebuchet MS", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 12pt;
+		font-weight: 400;
+		margin: 0;
+		text-decoration: none;	
+	}
+	
+	.title_comments {
+		font-family: "Trebuchet MS", Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+		color: #a6414a;
+		font-size: 10pt;
+		font-weight: 400;
+		margin: 0;
+		text-decoration: none;	
+	}	
+/* ********************************
+   Project: CSS Table Galery
+   Title: Like Adwords
+   Author: Cleiton Francisco
+   URL: http://www.cleiton.net/
+   Country: Brazil
+   Update: 2005-12-18
+ ****************************** */
+/*table {
+	border-collapse: collapse;
+	border: 2px solid #3f7c5f;
+	font: normal 80%/140% arial, verdana, helvetica, sans-serif;
+	color: #000;
+	background: #fff;
+}
+caption {
+	padding: 0 0.6em 0.8em;
+	font-size: 1.3em;
+	font-weight: bold;
+	text-align: left;
+	color: #000;
+	background: transparent;
+}
+td, th {
+	border: 1px solid #e0e0e0;
+	padding: 0.5em;
+}
+thead th {
+	border: 1px solid #e0e0e0;
+	text-align: left;
+	font-size: 1em;
+	font-weight: bold;
+	background: #c6d7cf;
+}
+tfoot th, tfoot td {
+	border: 1px solid #e0e0e0;
+	text-align: left;
+	font-size: 1em;
+	background: #e8e8cf;
+}
+tfoot th {
+	font-weight: bold;
+}
+tbody td a {
+	background: transparent;
+	color: #00c;
+	text-decoration: underline;
+}
+tbody td a:hover {
+	background: transparent;
+	color: #00c;
+	text-decoration: underline;
+}
+tbody th a {
+	background: transparent;
+	color: #3f7c5f;
+	text-decoration: underline;
+	font-weight: bold;
+}
+tbody th a:visited {
+	color: #b98b00;
+}
+tbody th, tbody td {
+	vertical-align: top;
+	text-align: left;
+}
+tfoot td {
+	border: 1px solid #996;
+}
+tbody tr:hover {
+	background: #ffffd9;
+}
+*/

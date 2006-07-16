@@ -103,5 +103,9 @@ class S7N_Database_MySQL {
     public function fetchAssoc($result) {
         return mysql_fetch_assoc($result);
     }
+    
+    public function getVersion() {
+        return 'MySQL '.mysql_get_server_info();
+    }
 }
 ?>

@@ -10,19 +10,31 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 $startTime = microtime();
-require('config.php');
-
+require('../config.php');
+require('../lib/abstract/admin.php');
+define('ADMINISTRATION', true);
 
 try {
     $s7n = S7Ncms::getInstance();
 
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
-	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
-	    exit;
+	    /*
+	     * TODO: Adminpanel anzeigen lassen
+	     */
+	    $tpl = new S7N_Template('admin_overview');
+	    $s7n->output = $tpl->parse();
+	    //header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
+	    //exit;
+	} else {	
+		require(BASE_PATH.'/admin/modules/'.$module.'/'.$module.'.php');
+		$module = 'S7N_Admin_'.ucfirst($module);
+		
+		$moduleInstance = new $module();
+		$moduleInstance->execute();
 	}
-	$type = $s7n->getRequestedPageType($module);
-	if ($type == 'dynamic') {
+	
+	/*if ($type == 'dynamic') {
 		require(BASE_PATH.'/modules/'.$module.'/'.$module.'.php');
 		$module = 'S7N_Module_'.ucfirst($module);
 		
@@ -33,7 +45,7 @@ try {
 	    $s7n->output = $tmp->parse(array('title' => $s7n->page['title'],'text' => $s7n->page['content']));
 	} else {
 	    throw new S7N_Exception($s7n->_('Page not found'));	    
-	}
+	}*/
 } catch(S7N_Exceptionn $e) {
     echo $e;
 }
