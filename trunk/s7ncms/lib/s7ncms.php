@@ -33,7 +33,7 @@ class S7Ncms {
         $config = new S7N_Config($this);
         $this->cfg = $config->getCachedConfig();
         $this->i18n = new S7N_I18n();
-        $this->translation = & $this->i18n->getTranslation();
+        $this->translation = $this->i18n->getTranslation();
         $this->user = new S7N_Access();
         define('VERSION', '0.4');
     }
@@ -49,7 +49,7 @@ class S7Ncms {
      * Prints out the generated output
      *
      */
-    public function __destruct() {
+    public function finalize() {
         /*
          * TODO: Hier kommt die Ausgabe rein
          * $template = new Template('main');

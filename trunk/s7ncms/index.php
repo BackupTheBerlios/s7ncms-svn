@@ -12,14 +12,13 @@ error_reporting(E_ALL);
 $startTime = microtime();
 require('config.php');
 
-
 try {
     $s7n = S7Ncms::getInstance();
 
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
 	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
-	    exit;
+	    //exit;
 	}
 	$type = $s7n->getRequestedPageType($module);
 	
@@ -42,6 +41,8 @@ try {
 	} else {
 	    throw new S7N_Exception($s7n->_('Page not found'));	    
 	}
+	
+	$s7n->finalize();
 } catch(S7N_Exceptionn $e) {
     echo $e;
 }

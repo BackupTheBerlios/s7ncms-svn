@@ -42,7 +42,8 @@ try {
 	} else {
 	    throw new S7N_Exception($s7n->_('Get out of here!'));
 	}
-} catch(S7N_Exceptionn $e) {
+	$s7n->finalize();
+} catch(S7N_Exception $e) {
     echo $e;
 }
 

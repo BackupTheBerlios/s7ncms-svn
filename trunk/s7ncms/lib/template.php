@@ -13,7 +13,7 @@ class S7N_Template {
     private $template;
     
     public function __construct($name) {
-        $this->s7n = & S7Ncms::getInstance();
+        $this->s7n = S7Ncms::getInstance();
         
         if(defined('ADMINISTRATION')) {
             $this->s7n->cfg['s7ncms']['theme'] = 'admin';
@@ -30,9 +30,7 @@ class S7N_Template {
     
     public function parse($replace=array()) {
         $pagetitle = isset($replace['pagetitle']) ? $replace['pagetitle'] . ' - ': '';
-        if(defined('ADMINISTRATION')) {
-            $this->s7n->cfg['s7ncms']['imageurl'] = '../'.$this->s7n->cfg['s7ncms']['imageurl'];
-        }
+        
         $replace = array_merge($replace,array(
             'imageurl' => $this->s7n->cfg['s7ncms']['imageurl'],
             'pagetitle' => $pagetitle.$this->s7n->cfg['s7ncms']['title'],
