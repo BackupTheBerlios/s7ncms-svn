@@ -44,27 +44,7 @@ class S7N_Module {
         
     }
  
-    //! An accessor
-    /**
-    * Calls the update() function using the reference to each
-    * registered observer - used by children of Observable
-    * @return void
-    */ 
-    public function notifyObservers($state,&$string=null) {
-    	$observers=count($this->observers);
-        for ($i=0;$i<$observers;$i++) {
-            $this->observers[$i]->update($state,$string);
-        }
-    }
- 
-    //! An accessor
-    /**
-    * Register the reference to an object
-    * @return void
-    */ 
-    function addModule (&$observer) {
-        $this->observers[]=&$observer;
-    }
+
  
     
     /*public static function isValidModule($module) {

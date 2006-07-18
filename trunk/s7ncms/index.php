@@ -14,7 +14,11 @@ require('config.php');
 
 try {
     $s7n = S7Ncms::getInstance();
-
+	/*
+	 * Load Plugins:
+	 */
+	//require('plugins/Mailer.php');
+	
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
 	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);
@@ -33,8 +37,10 @@ try {
 	    require(BASE_PATH.'/modules/'.$module.'/'.$class.'.php');
 		$module = 'S7N_Module_'.ucfirst($class);
 		
-		$moduleInstance = new $module();
-		$moduleInstance->execute(); 
+		$moduleInstance = new $module();		
+		
+		$moduleInstance->execute();
+
 	} elseif($type == 'static') {
 	    $tmp = new S7N_Template('default_content');
 	    $s7n->output = $tmp->parse(array('title' => $s7n->page['title'],'content' => $s7n->page['content']));

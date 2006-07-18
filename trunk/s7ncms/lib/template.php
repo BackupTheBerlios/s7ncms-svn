@@ -19,13 +19,18 @@ class S7N_Template {
             $this->s7n->cfg['s7ncms']['theme'] = 'admin';
         }
         
-        $path = BASE_PATH.'/templates/'.$this->s7n->cfg['s7ncms']['theme'].'/html/'.$name.'.html';
         
-        if(preg_match("/^\S+$/", $name) AND file_exists($path)) {
-            $this->template = file_get_contents($path);
+        if(preg_match("/^[a-zA-Z_\/\-]+$/", $name)) {
+            $path = BASE_PATH.'/templates/'.$this->s7n->cfg['s7ncms']['theme'].'/html/'.$name.'.html';
+        	if(file_exists($path)) {
+        	    $this->template = file_get_contents($path);
+        	} else {
+        	    $this->template = 'Template '. $name .' not found.';
+        	}
         } else {
             $this->template = $name;
-        } 
+        }
+        
     }
     
     public function parse($replace=array()) {
