@@ -12,11 +12,6 @@
  *  Base Observerable class
  */
 class S7N_Module {
-    /**
-    * Private
-    * $observers an array of Observer objects to notify
-    */
-    private $observers = array(); 
     
     protected $db;
     protected $title;

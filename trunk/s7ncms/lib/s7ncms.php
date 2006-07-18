@@ -9,6 +9,12 @@
  */
 
 class S7Ncms {
+        /**
+    * Private
+    * $observers an array of Observer objects to notify
+    */
+    private $observers = array(); 
+    private $observers_new = array();
     private static $instance = null;
     public $cfg;
     public $db;
@@ -17,6 +23,7 @@ class S7Ncms {
     private $i18n;
     public $translation;
     public $user;
+    
     
     /**
      * initializes some instances
@@ -52,9 +59,10 @@ class S7Ncms {
     * @return void
     */ 
     public function notifyObservers($state,&$string=null) {
-    	$observers=count($this->observers);
-        for ($i=0;$i<$observers;$i++) {
-            $this->observers[$i]->update($state,$string);
+    	if(array_key_exists($state,$this->observers_new)){
+            foreach ($this->observers_new[$state] as $observer) {
+                $observer->update($state,$string);
+            }
         }
     }
  
@@ -63,8 +71,11 @@ class S7Ncms {
     * Register the reference to an object
     * @return void
     */ 
-    function addModule (&$observer) {
-        $this->observers[]=&$observer;
+    function addPlugin (&$observer,$states) {
+        $this->observers[]=$observer;
+        foreach($states as $state) {
+            $this->observers_new[$state][] = $observer;
+        }
     }    
     
     /**

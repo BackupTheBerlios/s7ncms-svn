@@ -22,12 +22,13 @@ class S7N_Plugin {
     /**
     * Constructs the Observer
     * @param $subject the object to observe
+    * @param $states Array of state to observe
     */
-    function __construct(&$subject) {
-        $this->subject=&$subject;
+    function __construct(&$subject,$states=array()) {
+        $this->subject=$subject;
  
         // Register this object so subject can notify it
-        $subject->addModule($this);
+        $subject->addPlugin($this,$states);
     }
  
     //! An accessor
@@ -37,7 +38,11 @@ class S7N_Plugin {
     * @return void
     */    
     function update($state,$string=null) {
-        trigger_error ('Update not implemented');
+        try {
+            throw new S7N_Exception('Update not implemented');
+        } catch (S7N_Exception $e) {
+            echo $e;
+        }
     }
 }
 ?>
