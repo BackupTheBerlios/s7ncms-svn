@@ -9,12 +9,8 @@
  */
 
 class S7Ncms {
-        /**
-    * Private
-    * $observers an array of Observer objects to notify
-    */
-    private $observers = array(); 
-    private $observers_new = array();
+    private $plugins = array(); 
+    
     private static $instance = null;
     public $cfg;
     public $db;
@@ -55,13 +51,13 @@ class S7Ncms {
     //! An accessor
     /**
     * Calls the update() function using the reference to each
-    * registered observer - used by children of Observable
+    * registered plugin - used by children of Observable
     * @return void
     */ 
-    public function notifyObservers($state,&$string=null) {
-    	if(array_key_exists($state,$this->observers_new)){
-            foreach ($this->observers_new[$state] as $observer) {
-                $observer->update($state,$string);
+    public function notifyPlugins($state,&$string=null) {
+    	if(array_key_exists($state,$this->plugins)){
+            foreach ($this->plugins[$state] as $plugin) {
+                $plugin->update($state,$string);
             }
         }
     }
@@ -71,10 +67,9 @@ class S7Ncms {
     * Register the reference to an object
     * @return void
     */ 
-    function addPlugin (&$observer,$states) {
-        $this->observers[]=$observer;
+    function addPlugin (&$plugin,$states) {
         foreach($states as $state) {
-            $this->observers_new[$state][] = $observer;
+            $this->plugins[$state][] = $plugin;
         }
     }    
     
@@ -83,14 +78,6 @@ class S7Ncms {
      *
      */
     public function finalize() {
-        /*
-         * TODO: Hier kommt die Ausgabe rein
-         * $template = new Template('main');
-         * echo $template->parse(array(
-         *     'title' => $this->cfg->get('s7ncms','title'),
-         *     'content' => $this->output
-         * ));
-         */
         if(!defined('FATAL_ERRORX')){
 	        $main = new S7N_Template('main');
 	        

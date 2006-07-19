@@ -8,9 +8,6 @@
  * @copyright Eduard Baun, 2006
  */
 
-/**
- *  Base Observerable class
- */
 class S7N_Module {
     
     protected $db;
@@ -25,10 +22,6 @@ class S7N_Module {
     protected $s7n;
     protected $user;
     
-    //! A constructor
-    /**
-    * Constructs the Observerable object
-    */
     public function __construct() {
         $this->s7n = S7Ncms::getInstance();
         $this->db = &$this->s7n->db;
@@ -38,9 +31,6 @@ class S7N_Module {
         $this->user = & $this->s7n->user;
         
     }
- 
-
- 
     
     /*public static function isValidModule($module) {
         return (is_object($module) AND $module instanceof S7N_Module);

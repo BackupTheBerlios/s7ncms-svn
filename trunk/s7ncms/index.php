@@ -15,10 +15,12 @@ require('config.php');
 try {
     $s7n = S7Ncms::getInstance();
 	/*
-	 * Load Plugins:
+	 * TODO: Plugins in der Datenbank an-/ausschalten
+	 * Load here your Plugins:
 	 */
-	//require('plugins/Mailer.php');
-	$s7n->notifyObservers('news_comment_added');
+	require('plugins/Mailer.php');
+	
+	
 	$module = $s7n->getRequestedModule();
 	if($module === null) {
 	    header('Location: '.$s7n->cfg['s7ncms']['scripturl'].$s7n->cfg['s7ncms']['defaultpage']);

@@ -8,15 +8,7 @@
  * @copyright Eduard Baun, 2006
  */
 
-/**
- *  Base Observerable class
- */
 class S7N_Admin {
-    /**
-    * Private
-    * $observers an array of Observer objects to notify
-    */
-    private $observers = array(); 
     
     protected $db;
     protected $title;
@@ -30,10 +22,6 @@ class S7N_Admin {
     protected $s7n;
     protected $user;
     
-    //! A constructor
-    /**
-    * Constructs the Observerable object
-    */
     public function __construct() {
         $this->s7n = & S7Ncms::getInstance();
         $this->db = & $this->s7n->db;
@@ -43,28 +31,7 @@ class S7N_Admin {
         $this->user = & $this->s7n->user;       
     }
  
-    //! An accessor
-    /**
-    * Calls the update() function using the reference to each
-    * registered observer - used by children of Observable
-    * @return void
-    */ 
-    public function notifyObservers($state,&$string=null) {
-    	$observers=count($this->observers);
-        for ($i=0;$i<$observers;$i++) {
-            $this->observers[$i]->update($state,$string);
-        }
-    }
- 
-    //! An accessor
-    /**
-    * Register the reference to an object
-    * @return void
-    */ 
-    function addModule (&$observer) {
-        $this->observers[]=&$observer;
-    }
- 
+
     
     /*public static function isValidModule($module) {
         return (is_object($module) AND $module instanceof S7N_Module);

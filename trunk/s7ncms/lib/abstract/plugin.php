@@ -8,9 +8,6 @@
  * @copyright Eduard Baun, 2006
  */
 
-/**
- *  Base Observer class
- */
 class S7N_Plugin {
     /**
     * Protected
@@ -18,9 +15,8 @@ class S7N_Plugin {
     */
     protected $subject;
  
-    //! A constructor
     /**
-    * Constructs the Observer
+    * Constructs the Plugin
     * @param $subject the object to observe
     * @param $states Array of state to observe
     */
@@ -31,7 +27,6 @@ class S7N_Plugin {
         $subject->addPlugin($this,$states);
     }
  
-    //! An accessor
     /**
     * Abstract function implemented by children to repond to
     * to changes in Observable subject
