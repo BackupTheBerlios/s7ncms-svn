@@ -1,11 +1,15 @@
 <?php
 /**
- * S7Ncms
+ * S7Ncms - www.s7n.de
+ * 
+ * Copyright (c) 2006, Eduard Baun
+ * All rights reserved.
+ * 
+ * See license.txt for full text and disclaimer
  * 
  * @author Eduard Baun <edy@edy-b.de>
- * @license http://creativecommons.org/licenses/by-nc-nd/2.0/de/ Creative Commons Attribution-NonCommercial-NoDerivs 2.0
- * @version $Id$
  * @copyright Eduard Baun, 2006
+ * @version $Id$
  */
 
 class S7N_Admin_Pages extends S7N_Admin {
@@ -13,9 +17,38 @@ class S7N_Admin_Pages extends S7N_Admin {
         parent::__construct();
     }
     public function execute() {
-        $tpl = new S7N_Template('sysinfo/sysinfo');
-        $this->output = $tpl->parse(array('databaseversion' => $this->db->getVersion()));
+        $this->output = $this->getOverview();
     }
+    
+    private function getOverview() {
+        $output = "<h1>".$this->s7n->_('Statische Seiten')."</h1>";
+        $sql = "SELECT
+            id,
+            name,
+            title,
+            DATE_FORMAT(lastUpdate,'%d.%m.%Y, %H:%i') AS lastUpdate
+            
+        FROM ".DB_PREFIX."pages
+        WHERE type = 'static'
+        ORDER BY name ASC";
+        
+        /*
+         * Das ist Murks! Templates müssen her! Raus mit HTML!
+         */
+        $result = $this->db->query($sql);
+        $output .= '<a href="'.$this->cfg['s7ncms']['scripturl'].'admin/pages/new">create new</a><hr>';
+        $output .= '<table style="width: 100%;" border="0" cellpadding="3"><thead><tr style="font-weight: bold;"><th>Name</th><th>Zuletzt bearbeitet</th><th>Aktion</th></tr></thead>';
+        while($row = $this->db->fetchAssoc($result)) {
+            $output .= '<tr>';
+            $output .= '<td><a href="'.$this->cfg['s7ncms']['scripturl'].$row['name'].'">'.$row['title'].'</a></td>';
+            $output .= '<td>'.$row['lastUpdate'].'</td>';
+            $output .= '<td>(<a href="'.$this->cfg['s7ncms']['scripturl'].'admin/pages/edit?id='.$row['id'].'">edit</a>, <a href="'.$this->cfg['s7ncms']['scripturl'].'admin/pages/delete?id='.$row['id'].'">delete</a>)</td>';
+            $output .= '</tr>';
+        }
+        $output .= '</table>';
+        return $output;
+    }
+    
 }
 
 ?>

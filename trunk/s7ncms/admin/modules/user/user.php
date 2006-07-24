@@ -1,11 +1,15 @@
 <?php
 /**
- * S7Ncms
+ * S7Ncms - www.s7n.de
+ * 
+ * Copyright (c) 2006, Eduard Baun
+ * All rights reserved.
+ * 
+ * See license.txt for full text and disclaimer
  * 
  * @author Eduard Baun <edy@edy-b.de>
- * @license http://creativecommons.org/licenses/by-nc-nd/2.0/de/ Creative Commons Attribution-NonCommercial-NoDerivs 2.0
- * @version $Id$
  * @copyright Eduard Baun, 2006
+ * @version $Id$
  */
 
 class S7N_Admin_User extends S7N_Admin {
@@ -22,7 +26,7 @@ class S7N_Admin_User extends S7N_Admin {
     }
     
     private function getUserList() {
-        $list = '<table style="width: 100%;" border="0" cellpadding="3"><thead><tr style="font-weight: bold;"><th>User</th><th>Gruppe</th><th>Status</th><th>Aktion</th></tr></thead>';
+        $list = '<h1>Benutzerverwaltung</h1><table style="width: 100%;" border="0" cellpadding="3"><thead><tr style="font-weight: bold;"><th>User</th><th>Gruppe</th><th>Status</th><th>Aktion</th></tr></thead>';
         $sql = "
         SELECT
             users.id,

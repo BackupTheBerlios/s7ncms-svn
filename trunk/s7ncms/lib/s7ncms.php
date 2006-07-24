@@ -1,11 +1,15 @@
 <?php
 /**
- * S7Ncms
+ * S7Ncms - www.s7n.de
+ * 
+ * Copyright (c) 2006, Eduard Baun
+ * All rights reserved.
+ * 
+ * See license.txt for full text and disclaimer
  * 
  * @author Eduard Baun <edy@edy-b.de>
- * @license http://creativecommons.org/licenses/by-nc-nd/2.0/de/ Creative Commons Attribution-NonCommercial-NoDerivs 2.0
- * @version $Id$
  * @copyright Eduard Baun, 2006
+ * @version $Id$
  */
 
 class S7Ncms {
@@ -151,6 +155,16 @@ class S7Ncms {
     public function _($string,$param1=null) {
         return $this->i18n->_($string,$param1);
     }
+    
+    public function createSefString ($string) {
+		$search =  array(' ', "\xc3\xa4", "\xc3\x84", "\xc3\xb6", "\xc3\x96", "\xc3\xbc", "\xc3\x9c", "\xc3\x9f", "\xe4", "\xc4", "\xf6", "\xd6", "\xfc", "\xdc", "\xdf");
+		$replace = array('-', 'ae',       'Ae',       'oe',       'Oe',       'ue',       'Ue' ,      'ss',       'ae',   'Ae',   'oe',   'Oe',   'ue',   'Ue' ,  'ss');
+        $string = str_replace($search, $replace, $string);
+		$string = preg_replace('/[^A-Za-z0-9_\-]/', '', $string);
+        $string = urldecode($string);
+		$string = strtolower($string);
+        return $string;
+	}
     
 }
 ?>

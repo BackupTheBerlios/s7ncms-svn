@@ -1,11 +1,15 @@
 <?php
 /**
- * S7Ncms
+ * S7Ncms - www.s7n.de
+ * 
+ * Copyright (c) 2006, Eduard Baun
+ * All rights reserved.
+ * 
+ * See license.txt for full text and disclaimer
  * 
  * @author Eduard Baun <edy@edy-b.de>
- * @license http://creativecommons.org/licenses/by-nc-nd/2.0/de/ Creative Commons Attribution-NonCommercial-NoDerivs 2.0
- * @version $Id$
  * @copyright Eduard Baun, 2006
+ * @version $Id$
  */
 
 class S7N_Database_MySQLi {
@@ -44,7 +48,7 @@ class S7N_Database_MySQLi {
 		try {
 		    $result = $this->dbh->query($query);
 		    if(!$result) {
-				throw new DatabaseException($this->dbh->error);
+				throw new S7N_Exception($this->dbh->error);
 			}
 		} catch (DatabaseException $e) {
 		    echo $e;
